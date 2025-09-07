@@ -1,0 +1,35 @@
+clc;
+clear all;
+
+% Define the function
+f = @(x) sqrt(cos(x));
+
+% Limits
+a = 0;
+b = pi/2;
+
+% Number of intervals (must be multiple of 3)
+n = 6;
+
+% Step size
+h = (b - a) / n;
+
+% Initialize sums
+sum3 = 0;  % terms where i is multiple of 3
+sum1 = 0;  % terms where i is not multiple of 3
+
+% Loop over subintervals
+for i = 1:n-1
+    x = a + i*h;
+    if mod(i,3)==0
+        sum3 = sum3 + f(x);   % multiples of 3
+    else
+        sum1 = sum1 + f(x);   % non-multiples of 3
+    end
+end
+
+% Apply Simpson's 3/8 formula
+I = (3*h/8) * (f(a) + f(b) + 3*sum1 + 2*sum3);
+
+% Display result
+fprintf('The value of the integral using Simpson''s 3/8 rule is: %.4f\n', I);
