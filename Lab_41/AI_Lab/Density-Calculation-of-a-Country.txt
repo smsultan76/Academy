@@ -1,0 +1,12 @@
+% Calculation of Density of Population of a particular country
+population(china,100).
+population(india,100).
+population(usa,100).
+population(bangladesh,100).
+area(china,10).
+area(india,10).
+area(usa,10).
+area(bangladesh,10).
+density(X,Y):-population(X,Pop),
+              area(X,Ar),
+              Y is Pop/Ar.
