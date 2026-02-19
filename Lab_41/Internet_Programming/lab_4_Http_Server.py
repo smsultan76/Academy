@@ -1,6 +1,4 @@
 import socket
-
-# Create TCP socket
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 HOST = '127.0.0.1'   # localhost
